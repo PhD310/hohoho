@@ -120,12 +120,12 @@ Giai đoạn hâm dở này làm anh khó kiểm soát i am being overwhelmed by
 Lần đầu làm cái thiệp silli nè nên trông đơn giản nhưng tình cảm tràn lan bro keep in mind bro nhé. Uhhuhu đang viết lại nhớ em rồi how much i miss being faded into u your arms your hugs your kissie bro imma wait for long long. Me enormous ego but with u so special that i phát hiện ra how much i can and did change fr no kidding ong mật ong đực ong cái bro, thật sự em đặc biệt mà ảo ảo kiểu gì á :P 
 
 Are u today date cause u 20/10 gấp đôi điểm max bình thường lun, thui anh đùa, wish u con đường phía trước lót nhựa trải thảm rắc hoa hồng cho em đi đỡ đau mỏi chân, bụng em (và anh) ngoan khi đến kì, nghiện cứu khoá học ổn, ftu không làm fiền em, mọi người all nice and kind với em, đét lai like em (iu thương không nặng nề), mental phy sích cồ cải thiện hơn nè chớ anh không chúc nhìu, cải thiện từng ngày là tốt rùi, em vẫn là em bé nhé ~.~
-
+  
 Can u stay till me đại ca thế giới, pleaseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee! Không phải dấu hỏi nhé đây là offer ngàn năm có 1000 <3. Viết ngắn ngắn z sau có thêm điều nhắn nhủ gửi bù hen, me adore you honey 💞
-      </p>
+        </p>
       <div class="audio-container">
-        <!-- Autoplay local audio -->
-        <audio id="background-audio" autoplay loop>
+        <!-- Local audio without autoplay -->
+        <audio id="background-audio" loop>
           <source src="audio.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -134,20 +134,25 @@ Can u stay till me đại ca thế giới, pleaseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
   <script>
     function checkPassword() {
-  const password = document.getElementById('password').value;
-  const correctPassword = 'meanhp';
+      const password = document.getElementById('password').value;
+      const correctPassword = 'meanhp';
 
-  if (password === correctPassword) {
-    document.getElementById('password-container').style.display = 'none';
-    document.getElementById('postcard-container').style.display = 'block';
+      if (password === correctPassword) {
+        document.getElementById('password-container').style.display = 'none';
+        document.getElementById('postcard-container').style.display = 'block';
 
-    // Play audio after entering the correct password
-    const audio = document.getElementById('background-audio');
-    audio.play();
-  } else {
-    alert('Incorrect password. Please try again.');
-  }
-}
+        // Play audio after entering the correct password
+        const audio = document.getElementById('background-audio');
+        audio.load(); // Ensure audio is loaded
+        audio.play().then(() => {
+          console.log("Audio is playing");
+        }).catch(error => {
+          console.error("Failed to play audio:", error);
+        });
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
 
     function toggleReveal() {
       const card = document.querySelector('.card');
