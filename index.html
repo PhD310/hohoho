@@ -134,16 +134,20 @@ Can u stay till me đại ca thế giới, pleaseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
   <script>
     function checkPassword() {
-      const password = document.getElementById('password').value;
-      const correctPassword = 'meanhp';
+  const password = document.getElementById('password').value;
+  const correctPassword = 'meanhp';
 
-      if (password === correctPassword) {
-        document.getElementById('password-container').style.display = 'none';
-        document.getElementById('postcard-container').style.display = 'block';
-      } else {
-        alert('Incorrect password. Please try again.');
-      }
-    }
+  if (password === correctPassword) {
+    document.getElementById('password-container').style.display = 'none';
+    document.getElementById('postcard-container').style.display = 'block';
+
+    // Play audio after entering the correct password
+    const audio = document.getElementById('background-audio');
+    audio.play();
+  } else {
+    alert('Incorrect password. Please try again.');
+  }
+}
 
     function toggleReveal() {
       const card = document.querySelector('.card');
