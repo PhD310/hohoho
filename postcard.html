@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Digital Postcard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lora', serif;
+      background-color: #faebf7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      position: relative;
+      width: 1000px;
+      height: 625px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      background-image: url('original.jpg'); /* Your image path */
+      background-size: cover;
+      border-radius: 15px;
+      position: absolute;
+      left: 0;
+      transition: left 0.7s ease; /* Smooth slide effect */
+    }
+
+    .card.clicked {
+      left: -100%; /* Slide off to the left */
+    }
+
+    .hidden-content {
+      position: absolute;
+      top: 0; /* Move title further up to reduce blank space */
+      left: 50%;
+      transform: translate(-50%, 0);
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      width: 95%; /* Expand content width to fill space */
+      transition: opacity 0.7s ease, visibility 0.7s ease; /* Smooth fade */
+    }
+
+    .card.clicked + .hidden-content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 24px; /* Reduce title size to 1.5/3 of the original */
+      margin: 5px 0; /* Reduce margin to bring the title upwards */
+    }
+
+    p {
+      font-size: 12.375px; /* Reduce text size to 0.25 times smaller */
+      color: #000;
+      line-height: 1.4; /* Adjust line spacing for better readability */
+      text-align: justify; /* Change text alignment to justify for even alignment */
+      word-wrap: break-word; /* Ensure long words break correctly */
+      white-space: pre-wrap; /* Preserve line breaks in original text */
+    }
+
+    .audio-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      text-align: center;
+    }
+
+    #password-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="password-container">
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" />
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <div class="container" id="postcard-container" style="display: none;" onclick="toggleReveal()">
+    <div class="card"></div>
+    <div class="hidden-content">
+      <h2>Awo ai đang đọc chắcắn siêu cấp cute xiên que hài hước hehe gần bằng người tạo</h2>
+      <p>
+Hê lô hăn ni. Sắp tròn 1 năm mình combat nhau rùi và trước hết anh chỉ muốn nói là rất yêu em. Đọc được cái nè thì em cũng biết mấy nay anh hay sủi làm gì rùi chớ gì vc bro thực ra anh tưởng thiệp tới muộn mà sớm quá nên edit lại chút. Kì này kinh tế eo hẹp với đang cố kẹp tình cảm vương vấn không có em bay mất nên tui chỉ có tấm lòng và cái card silli này thui TT xin phép gõ máy nha chứ tay dạo này mình cạu nhau tay anh đổ mồ hôi nơ vớt liên tục hự hự khẹc khẹc
+
+Năm ngoái anh nhớ là bro comment đâu đấy chúc chị em xinh đẹp và deserve everithing thì kì này tới em siêu deserve nhé hihihi nhưng mà tất nhiên không phải những lần cãi nhau nửa đêm hờn dỗi vời vợi gằn giọng nặng nhẹ gào thét hú hét rồi, just good things, anh yêu em. Xin lũi bro vì đã yêu phải tôi.
+
+Cực lôi cuốn mỗi lần tui nhớ lại nhờ làm gì cổ cũng nhẹ nhàng và follow, trong khi ẻm nhờ con khỉ đột này thì nhận lại hơi nhiều cọc cằn vì con khỉ hay tự ái, tôi đang CỐ sửa huhu ạ dù sao dù sao đi lữa tôi vẫn iêu em em thì sao không biết. Mà anh cứ phải list ra như vậy để em nhận ra em tuyệt như nào còn anh ngáo ra sao em nhé, nên đôi khi anh không lồ lộ ra (bằng ngôn từ) nhưng anh luôn cảm ơn đó honey, instead love language như trước tui share là đặt em gì đó em ăn uống thấy em vui mood up anh cười hắc hắc.
+
+Giai đoạn hâm dở này làm anh khó kiểm soát i am being overwhelmed by thoughts my mind shit and dumped all over ⇔ con khỉ đang đột trong anh nên gầm gừ gặc gặc không có được gentle không hay share lầm lì rất là mong em cảm sự thông đi mà ko anh ăn vạ huhu nếu em đang cười thì coi như deal nhé hihi pls i love u so im gonna pack my things and leave khỉ behind this feeling all that i know i love u i’m high sori bibi again vì anh nghĩ gì tuôn đó khà khà ><
+
+ĐỪNG có mà ko share hay adjust vì anh ko share nhiều gì gì đấy như em nói trong những tối muộn suy nghĩ luộm thuộm ko có nhau đêm nhuốm buồn :) bực nhé, hãy iêu hết mình tới khi mình va nhau lần tới tới tới nhân n lần hihi. 
+
+Lần đầu làm cái thiệp silli nè nên trông đơn giản nhưng tình cảm tràn lan bro keep in mind bro nhé. Uhhuhu đang viết lại nhớ em rồi how much i miss being faded into u your arms your hugs your kissie bro imma wait for long long. Me enormous ego but with u so special that i phát hiện ra how much i can and did change fr no kidding ong mật ong đực ong cái bro, thật sự em đặc biệt mà ảo ảo kiểu gì á :P 
+
+Are u today date cause u 20/10 gấp đôi điểm max bình thường lun, thui anh đùa, wish u con đường phía trước lót nhựa trải thảm rắc hoa hồng cho em đi đỡ đau mỏi chân, bụng em (và anh) ngoan khi đến kì, nghiện cứu khoá học ổn, ftu không làm fiền em, mọi người all nice and kind với em, đét lai like em (iu thương không nặng nề), mental phy sích cồ cải thiện hơn nè chớ anh không chúc nhìu, cải thiện từng ngày là tốt rùi, em vẫn là em bé nhé ~.~
+
+Can u stay till me đại ca thế giới, pleaseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee! Không phải dấu hỏi nhé đây là offer ngàn năm có 1000 <3. Viết ngắn ngắn z sau có thêm điều nhắn nhủ gửi bù hen, me adore you honey 💞
+      </p>
+      <div class="audio-container">
+        <!-- Autoplay local audio -->
+        <audio id="background-audio" autoplay loop>
+          <source src="audio.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const correctPassword = 'meanhp';
+
+      if (password === correctPassword) {
+        document.getElementById('password-container').style.display = 'none';
+        document.getElementById('postcard-container').style.display = 'block';
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
+
+    function toggleReveal() {
+      const card = document.querySelector('.card');
+      const hiddenContent = document.querySelector('.hidden-content');
+      
+      card.classList.toggle('clicked');
+    }
+  </script>
+
+</body>
+</html>
